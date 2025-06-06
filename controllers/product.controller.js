@@ -40,8 +40,7 @@ const updateProduct=async(req,res) =>{
         if(!product){
             return res.status(404).json({message:"Product not found"});
         }
-        res.status(200).json(product);
-
+        
         const upproduct=await Product.findById(id);
         
         res.status(200).json(upproduct);
@@ -68,7 +67,7 @@ const deleteProduct=async(req,res) =>{
 };
 
 
-module.exports{
+module.exports = {
     getProducts,
     getProduct,
     createProduct,
