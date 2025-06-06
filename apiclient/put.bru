@@ -1,0 +1,17 @@
+meta {
+  name: put
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:3000/api/products/6841b0907b7182730a439676
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name":"apple"
+  }
+}
