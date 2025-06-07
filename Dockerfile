@@ -1,17 +1,19 @@
-# Use the official Node.js LTS image
+# Use an official Node.js runtime as the base image
 FROM node:18
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Clone the repository
-RUN apt-get update && apt-get install -y git
-RUN git clone https://github.com/ThoomAbhi/nodecrudapp.git .
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Expose the app port (change if your app uses another port)
+# Copy the rest of the application code
+COPY . .
+
+# Expose the app port (change if different)
 EXPOSE 3000
 
 # Start the application
